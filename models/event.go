@@ -9,11 +9,14 @@ import (
 
 type Event struct {
 	ID                   uint      `json:"id" gorm:"primarykey"`
-	Name                 string    `json:"name"`
+	Title                string    `json:"title"`
 	Location             string    `json:"location"`
 	TotalTicketPurchased int64     `json:"totalTicketPurchased" gorm:"-"`
 	TotalTicketEntered   int64     `json:"totalTicketEntered" gorm:"-"`
-	Date                 time.Time `json:"date"`
+	Date                 string    `json:"date"`
+	IsFree               bool      `json:"isFree"`
+	Category             string    `json:"category"`
+	Organizer            string    `json:"organizer"`
 	CreateAt             time.Time `json:"createdAt"`
 	UpdatedAt            time.Time `json:"updatedAt"`
 }

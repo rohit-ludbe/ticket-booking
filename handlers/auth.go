@@ -52,9 +52,7 @@ func (h *AuthHandler) Login(ctx *fiber.Ctx) error {
 	return ctx.Status(fiber.StatusOK).JSON(&fiber.Map{
 		"status":  "success",
 		"message": "success",
-		"data": &fiber.Map{
-			"user": user,
-		},
+		"data":    user,
 	})
 }
 
@@ -94,9 +92,7 @@ func (h *AuthHandler) Register(ctx *fiber.Ctx) error {
 	return ctx.Status(fiber.StatusOK).JSON(&fiber.Map{
 		"status":  "success",
 		"message": "success",
-		"data": &fiber.Map{
-			"user": user,
-		},
+		"data":    user,
 	})
 }
 

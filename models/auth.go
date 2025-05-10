@@ -8,6 +8,7 @@ import (
 )
 
 type AuthCredentials struct {
+	Name     string `json:"name,omitempty"`
 	Email    string `json:"email" validate:"required"`
 	Password string `json:"password" validate:"required"`
 }

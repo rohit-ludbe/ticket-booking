@@ -15,6 +15,7 @@ const (
 
 type User struct {
 	ID        uint      `json:"id" gorm:"primarykey"`
+	Name      string    `json:"name" gorm:"type:text; not null"`
 	Email     string    `json:"email" gorm:"text; not null"`
 	Role      UserRole  `json:"role" gorm:"text; default:attendee"`
 	Password  string    `json:"-"`
