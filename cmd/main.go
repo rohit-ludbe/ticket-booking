@@ -20,10 +20,11 @@ func main() {
 	})
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:  "*",                                           // Allow all origins, or specify comma-separated list
-		AllowMethods:  "GET,POST,PUT,DELETE",                         // Allowed HTTP methods
-		AllowHeaders:  "Origin, Content-Type, Accept, Authorization", // Allowed request headers
-		ExposeHeaders: "Authorization, X-Custom-Header",              // Exposed response headers
+		AllowOrigins:     "http://localhost:5173, https://eventpass.rohitludbe.com, http://eventpass.rohitludbe.com", // Allow all origins, or specify comma-separated list
+		AllowMethods:     "GET,POST,PUT,DELETE",                                                                      // Allowed HTTP methods
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",                                              // Allowed request headers
+		ExposeHeaders:    "Authorization, X-Custom-Header",
+		AllowCredentials: true,
 	}))
 
 	// repositories
