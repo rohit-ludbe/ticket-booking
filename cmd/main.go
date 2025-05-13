@@ -40,8 +40,8 @@ func main() {
 	server := app.Group("/api/v1")
 	handlers.NewAuthHandler(server.Group("/auth"), authService)
 
-	eventGroup := api.Group("/event", middlewares.AuthProtected(database.DB.Db))
-	ticketGroup := api.Group("/ticket", middlewares.AuthProtected(database.DB.Db))
+	eventGroup := server.Group("/event", middlewares.AuthProtected(database.DB.Db))
+	ticketGroup := server.Group("/ticket", middlewares.AuthProtected(database.DB.Db))
 	handlers.NewEventHandler(eventGroup, eventRepository)
 	handlers.NewTicketHandler(ticketGroup, ticketRepository)
 	
