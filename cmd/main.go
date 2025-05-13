@@ -40,12 +40,10 @@ func main() {
 	server := app.Group("/api/v1")
 	handlers.NewAuthHandler(server.Group("/auth"), authService)
 
-	privateRoutes := server.Use(middlewares.AuthProtected(database.DB.Db))
-
-	// handler
-
-	handlers.NewEventHandler(privateRoutes.Group("/event"), eventRepository)
-	handlers.NewTicketHandler(privateRoutes.Group("/ticket"), ticketRepository)
-
+	eventGroup := api.Group("/event", middlewares.AuthProtected(database.DB.Db))
+	ticketGroup := api.Group("/ticket", middlewares.AuthProtected(database.DB.Db))
+	handlers.NewEventHandler(eventGroup, eventRepository)
+	handlers.NewTicketHandler(ticketGroup, ticketRepository)
+	
 	app.Listen("0.0.0.0:3001")
 }
