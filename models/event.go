@@ -14,7 +14,7 @@ type Event struct {
 	TotalTicketPurchased int64     `json:"totalTicketPurchased" gorm:"-"`
 	TotalTicketEntered   int64     `json:"totalTicketEntered" gorm:"-"`
 	Date                 string    `json:"date"`
-	IsFree               bool      `json:"isFree"`
+	IsFree               bool      `json:"isFree" gorm:"column:is_free"`
 	Category             string    `json:"category"`
 	Organizer            string    `json:"organizer"`
 	CreateAt             time.Time `json:"createdAt"`
